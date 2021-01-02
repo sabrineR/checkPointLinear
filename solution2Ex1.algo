@@ -1,0 +1,41 @@
+ALGORITHM ditinct_2
+VAR
+    htab : HASH_TABLE<INTEGER,INTEGER>;
+   t1 : ARRAY_OF INTEGER[5];
+   t2 : ARRAY_OF INTEGER[4];
+   j,i,count : INTEGER;
+  sum: INTEGER:=0;
+BEGIN
+read(t1);
+read(t2);
+FOR i FROM 0 TO t1.length-1 STEP 1  DO
+    IF (htab.lookup(t1[i]=true)) THEN
+        count:=htab.get(t1[i]);
+        htab.insert(t1[i],count+1);
+        ELSE 
+        htab.insert(t1[i],1);
+    END_IF
+END_FOR
+
+FOR j FROM 0 TO t2.length-1 STEP 1  DO
+    IF (htab.lookup(t2[j]=true)) THEN
+        count:=htab.get(t2[j]);
+        htab.insert(t2[j],count+1);
+        ELSE 
+        htab.insert(t2[j],1);
+    END_IF
+END_FOR
+
+FOR i FROM 0 TO t1.length-1 STEP 1  DO
+    IF (htab.get(t1[i]=1)) THEN
+       sum = sum+t1[i];
+    END_IF
+END_FOR
+write(sum);
+FOR j FROM 0 TO t2.length-1 STEP 1  DO
+    IF (htab.get(t2[j]=1)) THEN
+       sum = sum+t2[j];
+    END_IF
+END_FOR
+write(sum);
+END

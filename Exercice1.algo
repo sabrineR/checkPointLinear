@@ -1,0 +1,40 @@
+ALGORITHM distinct_Element
+VAR
+    sum : INTEGER :=0;
+    i ,j : INTEGER;
+    t1 : ARRAY_OF INTEGER[4];
+    t2 : ARRAY_OF INTEGER[5];
+
+BEGIN
+    // comparaison des element du t1 par rapport à t2
+    read(t1);
+    read(t2);
+    FOR i FROM 0 TO i<=t1.length-1 STEP 1  DO
+        j:=0;
+        WHILE (t1[i]<>t2[j] AND j <= t2.length-1) DO
+           
+               IF (j:=t2.length-1) THEN
+                  sum := sum+ t1[i];
+               END_IF
+                j:=j+1;
+        END_WHILE
+
+         write (sum);
+    END_FOR
+// comparaison des element du t2 par rapport à t1
+FOR j FROM 0 TO j<=t2.length-1 STEP 1  DO
+        i:=0;
+        WHILE (t2[j]<>t1[i] AND i <= t1.length-1) DO
+           
+               IF (i:=t1.length-1) THEN
+                  sum := sum+ t2[j];
+               END_IF
+                i:=i+1;
+        END_WHILE
+
+         write (sum);
+    END_FOR
+
+
+
+END
